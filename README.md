@@ -1,3 +1,9 @@
+# Project Overview
+It is a demo project for basic integration of claude with mcp server. 
+MCP server is built on top of Spring Boot and is used to run the claude model locally.
+It is a simple project that demonstrates how to set up a MCP server with the necessary dependencies to run the claude model.
+It includes the necessary dependencies for the MCP server and web server, as well as a simple configuration file to set up the server.
+
 # Getting Started
 
 ### Reference Documentation
@@ -19,10 +25,37 @@ If you manually switch to a different parent and actually want the inheritance, 
  - Apache Maven 3.6.3 or later
  - Spring Boot 3.3.x or higher
 
-# Install dependencies
+## Install dependencies
 - MCP Server (spring-ai-starter-mcp-server)
 - Web (spring-web)
 
-# Build:
-- ./mvnw clean install
+## Running project:
+- Build using: ./mvnw clean install
+- The above step will create a jar file in the target folder.
+- Copy path of the jar file.
+- Go to claude configuration file claude_desktop_config.json 
+  - settings --> edit configuration or /Library/Application Support/Claude
+- paste the below configuration 
+```
+{
+    "mcpServers": {
+    "spring-ai-mcp-weather": {
+    "command": "java",
+    "args": [
+    "-Dspring.ai.mcp.server.stdio=true",
+    "-jar",
+    "/ABSOLUTE/PATH/TO/target/mcp-0.0.1-SNAPSHOT.jar"
+    ]
+        }
+    }
+}
+```
+- Restart the claude desktop app.
+- Under tools, you will see 2 weather tools (getWeather and getAlerts)
+
+# How to test/Use
+- Open Claude desktop app.
+- Enter prompt - Tell me alerts in texas
+- Claude would use the getAlerts tool to get the alerts in texas 
+- Claude format the response in a natural language response
 
