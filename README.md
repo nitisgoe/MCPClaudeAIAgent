@@ -28,6 +28,18 @@ If you manually switch to a different parent and actually want the inheritance, 
 ## Install dependencies
 - MCP Server (spring-ai-starter-mcp-server)
 - Web (spring-web)
+````
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-mcp-server-spring-boot-starter</artifactId>
+            <version>1.0.0-M6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+````
 
 ## Running project:
 - Build using: ./mvnw clean install
@@ -53,7 +65,7 @@ If you manually switch to a different parent and actually want the inheritance, 
 - Restart the claude desktop app.
 - Under tools, you will see 2 weather tools (getWeather and getAlerts)
 
-# How to test/Use
+## How to Use:
 - Open Claude desktop app.
 - Enter prompt - Tell me alerts in texas
 - Claude would use the getAlerts tool to get the alerts in texas 
